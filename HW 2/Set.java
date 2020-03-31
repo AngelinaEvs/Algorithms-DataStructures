@@ -1,8 +1,8 @@
 import java.util.Arrays;
 import java.util.Objects;
 
-public class Set<T>{//набор, множество; события, информация
-    private T[] a;//linkList?
+public class Set<T> {
+    private T[] a;
     private int size;
     private int maxsize = 10;
 
@@ -20,10 +20,9 @@ public class Set<T>{//набор, множество; события, инфор
     public Set(Set<T> o) {
         this.a = o.a;
         this.size = o.a.length - 1;
-        //this.maxsize = o.maxsize;
     }
 
-    public boolean isHas(T el) {//contains
+    public boolean isHas(T el) {
         for (int i = 0; i < this.size; i++) {
             if (el == this.a[i]) {
                 return true;
@@ -43,7 +42,7 @@ public class Set<T>{//набор, множество; события, инфор
         return this.size;
     }
 
-    public void delete(T el) {//удаляем конкретный элемент // remove
+    public void delete(T el) {
         for (int i = 0; i < this.a.length; i++) {
             if (this.a[i] == el) {
                 this.a[i] = this.a[this.size - 1];
@@ -54,11 +53,10 @@ public class Set<T>{//набор, множество; события, инфор
         }
     }
 
-    public Set<T> merge(Set<T> o) {//O(n^2)
-        Set<T> newSet = new Set<>();//(a, size, maxsize);
+    public Set<T> merge(Set<T> o) {
+        Set<T> newSet = new Set<>();
         newSet.a = (T[]) new Object[this.size + o.size];
         newSet.size = this.size;
-        //System.arraycopy(this.a, 0, newSet.a, 0, this.a.length);
         for (int i = 0; i < this.size; i++) {
             newSet.a[i] = this.a[i];
         }
@@ -103,9 +101,3 @@ public class Set<T>{//набор, множество; события, инфор
         return result;
     }
 }
-
-/*Multiset - набор, в котором могут быть повторы[множество повторов событий]
-- сделать доп массив (1 - данные data, 2 - счетчики counters ++ add, -- del)
-интерфейс тот же
-можно сделать int has(el)||int countOf(el) -> O(n)
- */
