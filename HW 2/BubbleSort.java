@@ -10,7 +10,6 @@ public class BubbleSort {
     public static void bubbleSort(int[] array) {
         boolean flag = true;
         int tmp;
-
         while (flag) {
             flag = false;
             for (int i = 0; i < array.length - 1; i++) {
