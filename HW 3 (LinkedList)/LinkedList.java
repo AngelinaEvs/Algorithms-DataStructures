@@ -6,9 +6,9 @@ public class LinkedList<T> {
     private Node head;
     private int size;
 
-	private class Node {
-		protected T data;
-		protected Node next;
+    private class Node {
+	protected T data;
+	protected Node next;
 
         public Node() {
             this.data = null;
@@ -29,7 +29,7 @@ public class LinkedList<T> {
             this.data = data;
             this.next = null;
         }
-	}
+    }
 
     public LinkedList() {
 	    Node node = new Node();
