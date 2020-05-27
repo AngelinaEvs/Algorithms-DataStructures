@@ -16,7 +16,7 @@ public class MergeSort {
         System.out.println("NoR: " + Arrays.toString(array2));
     }
 
-    private static void mergeSort(int[] array, int left, int right) {
+    public static void mergeSort(int[] array, int left, int right) {
         if (left >= right) return;
         int middle = (left + right) / 2;
         mergeSort(array, left, middle);
@@ -24,7 +24,15 @@ public class MergeSort {
         merge(array, left, middle, right);
     }
 
-    private static void merge(int[] array, int left, int middle, int right) {
+    public static void mergeSortNoRecursive(int[] array, int left, int right) {
+        for (int i = 1; i <= right - left; i = i * 2) {
+            for (int j = left; j <= right - i; j = j + (2 * i)) {
+                merge(array, j, j + i - 1, Integer.min(j + (2 * i) - 1, right));
+            }
+        }
+    }
+
+    public static void merge(int[] array, int left, int middle, int right) {
         int[] mergeArray = new int[array.length];
         int begin = left;
         int middlePlus = middle + 1;
@@ -39,13 +47,5 @@ public class MergeSort {
             }
         }
         if (right + 1 - left >= 0) System.arraycopy(mergeArray, left, array, left, right + 1 - left);
-    }
-
-    public static void mergeSortNoRecursive(int[] array, int left, int right) {
-        for (int i = 1; i < right - left; i = i * 2) {
-            for (int j = left; j < right - i; j = j + (2 * i)) {
-                merge(array, j, j + i, Integer.min(j + (2 * i), right));
-            }
-        }
     }
 }
