@@ -129,7 +129,7 @@ public class AVLTree<T extends Comparable> {
     }
 
     private Node delete(Node node, T data) {
-        if (node == null) throw new NullPointerException("You try to delete null");
+        if (node == null) return null;
         if (data.compareTo(node.getData()) > 0) node.setRight(delete(node.getRight(), data));
         else if (data.compareTo(node.getData()) < 0) node.setLeft(delete(node.getLeft(), data));
         else {
