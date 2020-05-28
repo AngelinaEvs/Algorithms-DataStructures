@@ -94,20 +94,19 @@ public class BinarySearchTree<T extends Comparable> {
         return size;
     }
 
-    public void DFS() {
-        System.out.print(root.getData().toString() + " ");
-        DFS(root);
+    public void dfs() {
+        dfs(root);
     }
 
-    private void DFS(Node node) {
+    private void dfs(Node node) {
         if (node != null) {
-            DFS(node.getLeft());
+            dfs(node.getLeft());
             System.out.print(node.getData().toString() + " ");
-            DFS(node.getRight());
+            dfs(node.getRight());
         }
     }
 
-    public void BFS() {
+    public void bfs() {
         Collection<Node> nodes = new ArrayList<>();
         nodes.add(root);
         childrenBFS(nodes);
